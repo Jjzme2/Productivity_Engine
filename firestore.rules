@@ -1,0 +1,134 @@
+// ─── Firestore Security Rules ─────────────────────────────────────────────────
+// Deploy with:  firebase deploy --only firestore:rules
+//
+// Every document requires a userId field matching the authenticated user's UID.
+// Anonymous auth users (guests) also have a UID, so they are covered.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helper: caller owns this document ───────────────────────────────────
+    // Reason: Every collection stores a `userId` field. Only the owner may
+    // read or write their own documents.
+    function isOwner() {
+      return request.auth != null
+          && resource.data.userId == request.auth.uid;
+    }
+
+    function isAuthenticatedCreate() {
+      return request.auth != null
+          && request.resource.data.userId == request.auth.uid;
+    }
+
+    // ── Per-collection rules ────────────────────────────────────────────────
+
+    // Tasks
+    match /tasks/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Habits
+    match /habits/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Habit entries
+    match /habit_entries/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Notes (metadata only — content lives in R2/local vault)
+    match /notes/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Calendar events
+    match /events/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Frameworks
+    match /frameworks/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Framework sessions
+    match /framework_sessions/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Activity log
+    match /activity_log/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // User insights
+    match /user_insights/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Weekly summaries
+    match /weekly_summaries/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Settings
+    match /settings/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Finance: accounts
+    match /accounts/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Finance: transactions
+    match /transactions/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Finance: budgets
+    match /budgets/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Finance: financial goals
+    match /financial_goals/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Finance: net worth
+    match /net_worth/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Important dates
+    match /dates/{docId} {
+      allow read, update, delete: if isOwner();
+      allow create: if isAuthenticatedCreate();
+    }
+
+    // Deny everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

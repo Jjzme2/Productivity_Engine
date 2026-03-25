@@ -1,0 +1,9 @@
+// ─── Store barrel export ───────────────────────────────────────────────────────
+export { useAppStore } from './app'
+export { useTaskStore } from './tasks'
+export { useHabitStore } from './habits'
+export { useNoteStore } from './notes'
+export { useCalendarStore } from './calendar'
+export { useFrameworkStore } from './frameworks'
+export { useAnalyticsStore } from './analytics'
+export { useImportantDatesStore } from './dates'

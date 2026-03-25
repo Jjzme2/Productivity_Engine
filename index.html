@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Productivity Engine — AI-powered personal productivity system" />
+    <meta name="theme-color" content="#0f0f13" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f7f4" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Tauri: disable right-click in production -->
+    <meta name="tauri-drag-region" content="true" />
+
+    <!-- Preconnect to Google Fonts for faster load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Inter (sans) + JetBrains Mono (mono) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..500&family=JetBrains+Mono:ital,wght@0,300..700;1,300..500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon (replaced by Tauri app icon at runtime) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Productivity Engine</title>
+  </head>
+  <body class="antialiased bg-surface-base text-white" style="background:#0f0f13;color:#f0f0f8">
+    <!-- Pre-render error display — shown if JS fails before Vue mounts.
+         Cleared on first successful Vue render via main.ts.           -->
+    <div id="pre-render-errors" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;max-height:50vh;overflow-y:auto;background:#18111a;border-top:2px solid #ef4444;font-family:monospace;font-size:12px;padding:12px 16px;color:#fca5a5;"></div>
+
+    <script>
+      ;(function () {
+        var container = document.getElementById('pre-render-errors')
+        function show(kind, msg, detail) {
+          if (!container) return
+          container.style.display = 'block'
+          var entry = document.createElement('div')
+          entry.style.cssText = 'padding:4px 0;border-bottom:1px solid rgba(239,68,68,0.2)'
+          var ts = new Date().toLocaleTimeString()
+          entry.innerHTML =
+            '<span style="color:#f87171;font-weight:bold">[' + kind + ']</span> ' +
+            '<span style="color:#fcd34d">' + ts + '</span> ' +
+            '<span style="color:#fca5a5">' + escHtml(msg) + '</span>' +
+            (detail ? '<br><span style="color:#9ca3af;padding-left:1em">' + escHtml(detail) + '</span>' : '')
+          container.appendChild(entry)
+        }
+        function escHtml(s) {
+          return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        }
+        window.addEventListener('error', function (e) {
+          show('JS ERROR', e.message || String(e.error), (e.filename || '') + (e.lineno ? ':' + e.lineno : ''))
+        })
+        window.addEventListener('unhandledrejection', function (e) {
+          var msg = e.reason instanceof Error ? e.reason.message : String(e.reason)
+          var stack = e.reason instanceof Error ? e.reason.stack : ''
+          show('UNHANDLED', msg, stack)
+        })
+        // Hide once Vue successfully mounts (signalled from main.ts)
+        window.__clearPreRenderErrors = function () {
+          if (container) container.style.display = 'none'
+        }
+      })()
+    </script>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

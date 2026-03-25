@@ -1,0 +1,195 @@
+
+> productivity-engine@0.1.0 typecheck
+> vue-tsc --noEmit
+
+src/components/calendar/CalendarSyncBadge.vue(8,7): error TS6133: 'app' is declared but its value is never read.
+src/components/calendar/CalendarView.vue(5,44): error TS6133: 'eachHourOfInterval' is declared but its value is never read.
+src/components/calendar/CalendarView.vue(6,3): error TS6133: 'startOfDay' is declared but its value is never read.
+src/components/calendar/CalendarView.vue(6,15): error TS6133: 'endOfDay' is declared but its value is never read.
+src/components/calendar/CalendarView.vue(157,34): error TS6133: 'di' is declared but its value is never read.
+src/components/frameworks/FrameworkSelector.vue(4,1): error TS6133: 'BaseCard' is declared but its value is never read.
+src/components/frameworks/FrameworkSelector.vue(37,24): error TS2339: Property 'icon' does not exist on type '{ id: string; userId: string; definitionSlug: FrameworkSlug; name: string; description?: string; isCustom: boolean; config?: { steps: { id: string; title: string; description?: string; durationMinutes?: number; isOptional: boolean; actionType?: "work" | ... 4 more ... | "capture"; }[]; ... 7 more ...; notifyOnStepCh...'.
+src/components/frameworks/FrameworkSelector.vue(52,61): error TS2339: Property 'estimatedMinutes' does not exist on type '{ id: string; userId: string; definitionSlug: FrameworkSlug; name: string; description?: string; isCustom: boolean; config?: { steps: { id: string; title: string; description?: string; durationMinutes?: number; isOptional: boolean; actionType?: "work" | ... 4 more ... | "capture"; }[]; ... 7 more ...; notifyOnStepCh...'.
+src/components/frameworks/FrameworkSelector.vue(54,30): error TS2339: Property 'isBuiltin' does not exist on type '{ id: string; userId: string; definitionSlug: FrameworkSlug; name: string; description?: string; isCustom: boolean; config?: { steps: { id: string; title: string; description?: string; durationMinutes?: number; isOptional: boolean; actionType?: "work" | ... 4 more ... | "capture"; }[]; ... 7 more ...; notifyOnStepCh...'.
+src/components/frameworks/builtin/PomodoroView.vue(2,10): error TS6133: 'ref' is declared but its value is never read.
+src/components/frameworks/builtin/PomodoroView.vue(2,25): error TS6133: 'onMounted' is declared but its value is never read.
+src/components/frameworks/builtin/PomodoroView.vue(13,53): error TS2339: Property 'pomodoroWorkMinutes' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(14,59): error TS2339: Property 'pomodoroShortBreakMinutes' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(15,58): error TS2339: Property 'pomodoroLongBreakMinutes' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(16,56): error TS2339: Property 'pomodoroIntervalsBeforeLongBreak' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(21,23): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(22,34): error TS2339: Property 'pomodoroSecondsLeft' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(26,24): error TS2353: Object literal may only specify known properties, and 'pomodoroSecondsLeft' does not exist in type 'Partial<FrameworkSession>'.
+src/components/frameworks/builtin/PomodoroView.vue(32,21): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(33,24): error TS2339: Property 'pomodoroInterval' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(36,9): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(37,22): error TS2339: Property 'pomodoroInterval' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(52,5): error TS2353: Object literal may only specify known properties, and 'pomodoroPhase' does not exist in type 'Partial<FrameworkSession>'.
+src/components/frameworks/builtin/PomodoroView.vue(59,28): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(70,22): error TS2353: Object literal may only specify known properties, and 'pomodoroRunning' does not exist in type 'Partial<FrameworkSession>'.
+src/components/frameworks/builtin/PomodoroView.vue(70,55): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(86,28): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(94,31): error TS2339: Property 'pomodoroSecondsLeft' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(99,28): error TS2339: Property 'pomodoroSecondsLeft' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(106,28): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(113,28): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(120,49): error TS2339: Property 'selectedTaskId' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(131,22): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(131,49): error TS2339: Property 'pomodoroPhase' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(180,32): error TS2339: Property 'pomodoroInterval' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(195,39): error TS2353: Object literal may only specify known properties, and 'selectedTaskId' does not exist in type 'Partial<FrameworkSession>'.
+src/components/frameworks/builtin/PomodoroView.vue(207,28): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(210,31): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(214,34): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/frameworks/builtin/PomodoroView.vue(220,21): error TS2339: Property 'pomodoroRunning' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/habits/HabitCreateForm.vue(2,15): error TS6133: 'computed' is declared but its value is never read.
+src/components/habits/HabitCreateForm.vue(10,7): error TS6133: 'props' is declared but its value is never read.
+src/components/habits/HabitCreateForm.vue(43,7): error TS6133: 'categories' is declared but its value is never read.
+src/components/habits/HabitCreateForm.vue(68,11): error TS2375: Type '{ customDays: number[] | undefined; title: string; description?: string; icon?: string; color?: string; frequency: HabitFrequency; targetCount?: number; unit?: string; reminderTime?: string; category: HabitCategory; startDate?: string; endDate?: string; }' is not assignable to type 'CreateHabitPayload' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'customDays' are incompatible.
+    Type 'number[] | undefined' is not assignable to type 'number[]'.
+      Type 'undefined' is not assignable to type 'number[]'.
+src/components/habits/HabitCreateForm.vue(117,10): error TS2379: Argument of type '{ modelValue: string | undefined; label: string; }' is not assignable to parameter of type '{ readonly modelValue?: string; readonly placeholder?: string; readonly label?: string; readonly error?: string; readonly type?: string; readonly autofocus?: boolean; readonly disabled?: boolean; ... 5 more ...; readonly "onUpdate:modelValue"?: (value: string) => any; } & VNodeProps & AllowedComponentProps & Compone...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ modelValue: string | undefined; label: string; }' is not assignable to type '{ readonly modelValue?: string; readonly placeholder?: string; readonly label?: string; readonly error?: string; readonly type?: string; readonly autofocus?: boolean; readonly disabled?: boolean; ... 5 more ...; readonly "onUpdate:modelValue"?: (value: string) => any; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'modelValue' are incompatible.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+src/components/habits/HabitDashboard.vue(16,7): error TS6133: 'skipped' is declared but its value is never read.
+src/components/habits/HabitStreakCalendar.vue(4,62): error TS6133: 'endOfMonth' is declared but its value is never read.
+src/components/habits/HabitStreakCalendar.vue(58,5): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/components/habits/HabitStreakCalendar.vue(74,27): error TS2345: Argument of type 'Date | undefined' is not assignable to parameter of type 'string | number | Date'.
+  Type 'undefined' is not assignable to type 'string | number | Date'.
+src/components/habits/HabitStreakCalendar.vue(91,7): error TS6133: 'monthLabels' is declared but its value is never read.
+src/components/layout/Sidebar.vue(37,15): error TS2339: Property 'frameworkType' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/layout/Sidebar.vue(38,26): error TS2339: Property 'pomodoroSecondsLeft' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/layout/Sidebar.vue(39,18): error TS2339: Property 'pomodoroSecondsLeft' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'.
+src/components/notes/NoteEditor.vue(2,22): error TS6133: 'onMounted' is declared but its value is never read.
+src/components/notes/NoteEditor.vue(179,10): error TS2379: Argument of type '{ class: string; editor: Editor | undefined; }' is not assignable to parameter of type 'Partial<{ editor: Editor; }> & Omit<{ readonly editor: Editor; } & VNodeProps & AllowedComponentProps & ComponentCustomProps, "editor"> & Record<...>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ class: string; editor: Editor | undefined; }' is not assignable to type 'Partial<{ editor: Editor; }>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'editor' are incompatible.
+      Type 'Editor | undefined' is not assignable to type 'Editor'.
+        Type 'undefined' is not assignable to type 'Editor'.
+src/components/notes/NotesList.vue(9,7): error TS6133: 'props' is declared but its value is never read.
+src/components/notes/NotesList.vue(25,23): error TS2379: Argument of type '{ searchQuery: string | undefined; }' is not assignable to parameter of type '{ searchQuery?: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'searchQuery' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/components/shared/BaseButton.vue(4,7): error TS6133: 'props' is declared but its value is never read.
+src/components/shared/BaseToast.vue(53,13): error TS18048: '__VLS_ctx.config' is possibly 'undefined'.
+src/components/shared/BaseToast.vue(58,66): error TS18048: '__VLS_ctx.config' is possibly 'undefined'.
+src/components/shared/ConfirmDialog.vue(5,7): error TS6133: 'props' is declared but its value is never read.
+src/components/shared/LoadingSpinner.vue(2,7): error TS6133: 'props' is declared but its value is never read.
+src/components/tasks/TaskBoard.vue(2,25): error TS6133: 'onMounted' is declared but its value is never read.
+src/components/tasks/TaskCard.vue(6,1): error TS6133: 'BaseBadge' is declared but its value is never read.
+src/components/tasks/TaskDetail.vue(3,15): error TS6196: 'Task' is declared but never used.
+src/components/tasks/TaskDetail.vue(3,51): error TS6196: 'TaskStatus' is declared but never used.
+src/components/tasks/TaskDetail.vue(43,24): error TS2379: Argument of type '{ id: string; title: string; description: string | undefined; priority: Priority; dueDate: string | undefined; eisenhowerQuadrant: EisenhowerQuadrant; tags: string[]; }' is not assignable to parameter of type 'UpdateTaskPayload' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'description' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/components/tasks/TaskFilters.vue(6,1): error TS6133: 'BaseBadge' is declared but its value is never read.
+src/components/tasks/TaskFilters.vue(7,1): error TS6133: 'BaseButton' is declared but its value is never read.
+src/components/tasks/TaskFilters.vue(42,19): error TS2379: Argument of type '{ status: TaskStatus[] | undefined; priority?: Priority[]; eisenhowerQuadrant?: EisenhowerQuadrant[]; tags?: string[]; projectId?: string; dueBefore?: string; dueAfter?: string; searchQuery?: string; includeArchived?: boolean; }' is not assignable to parameter of type 'TaskFilter' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'status' are incompatible.
+    Type 'TaskStatus[] | undefined' is not assignable to type 'TaskStatus[]'.
+      Type 'undefined' is not assignable to type 'TaskStatus[]'.
+src/components/tasks/TaskFilters.vue(50,19): error TS2379: Argument of type '{ priority: Priority[] | undefined; status?: TaskStatus[]; eisenhowerQuadrant?: EisenhowerQuadrant[]; tags?: string[]; projectId?: string; dueBefore?: string; dueAfter?: string; searchQuery?: string; includeArchived?: boolean; }' is not assignable to parameter of type 'TaskFilter' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'priority' are incompatible.
+    Type 'Priority[] | undefined' is not assignable to type 'Priority[]'.
+      Type 'undefined' is not assignable to type 'Priority[]'.
+src/components/tasks/TaskFilters.vue(93,48): error TS2379: Argument of type '{ searchQuery: string | undefined; status?: TaskStatus[]; priority?: Priority[]; eisenhowerQuadrant?: EisenhowerQuadrant[]; tags?: string[]; projectId?: string; dueBefore?: string; dueAfter?: string; includeArchived?: boolean; }' is not assignable to parameter of type 'TaskFilter' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'searchQuery' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/components/tasks/TaskPriorityMatrix.vue(58,15): error TS18047: 'matrix.value' is possibly 'null'.
+src/components/tasks/TaskPriorityMatrix.vue(59,15): error TS18047: 'matrix.value' is possibly 'null'.
+src/components/tasks/TaskPriorityMatrix.vue(60,15): error TS18047: 'matrix.value' is possibly 'null'.
+src/components/tasks/TaskPriorityMatrix.vue(61,16): error TS18047: 'matrix.value' is possibly 'null'.
+src/composables/useHabits.ts(30,28): error TS2379: Argument of type '{ title: string; message: string | undefined; variant: "success"; durationMs: number; }' is not assignable to parameter of type 'Omit<Toast, "id" | "durationMs"> & { durationMs?: number; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ title: string; message: string | undefined; variant: "success"; durationMs: number; }' is not assignable to type 'Omit<Toast, "id" | "durationMs">' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'message' are incompatible.
+      Type 'string | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+src/composables/useShortcuts.ts(4,1): error TS6192: All imports in import declaration are unused.
+src/composables/useShortcuts.ts(39,73): error TS6133: 'alt' is declared but its value is never read.
+src/services/firebase.ts(12,32): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/firebase.ts(13,32): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/firebase.ts(14,32): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/firebase.ts(22,24): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(options: FirebaseOptions, name?: string | undefined): FirebaseApp', gave the following error.
+    Argument of type '{ apiKey: string | undefined; authDomain: string; projectId: string | undefined; storageBucket: string; messagingSenderId: string; appId: string | undefined; }' is not assignable to parameter of type 'FirebaseOptions' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'apiKey' are incompatible.
+        Type 'string | undefined' is not assignable to type 'string'.
+          Type 'undefined' is not assignable to type 'string'.
+  Overload 2 of 3, '(options: FirebaseOptions, config?: FirebaseAppSettings | undefined): FirebaseApp', gave the following error.
+    Argument of type '{ apiKey: string | undefined; authDomain: string; projectId: string | undefined; storageBucket: string; messagingSenderId: string; appId: string | undefined; }' is not assignable to parameter of type 'FirebaseOptions' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'apiKey' are incompatible.
+        Type 'string | undefined' is not assignable to type 'string'.
+          Type 'undefined' is not assignable to type 'string'.
+src/services/firebase.ts(24,36): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/firebase.ts(26,36): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/firebase.ts(27,36): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/nlpPipeline.ts(66,34): error TS6133: 'nlpStore' is declared but its value is never read.
+src/services/syncService.ts(13,3): error TS6133: 'createDoc' is declared but its value is never read.
+src/services/tauriClient.ts(9,3): error TS2305: Module '"@/types/nlp"' has no exported member 'Suggestion'.
+src/services/tauriClient.ts(14,21): error TS6196: 'CreateTaskPayload' is declared but never used.
+src/services/tauriClient.ts(14,40): error TS6196: 'UpdateTaskPayload' is declared but never used.
+src/services/tauriClient.ts(46,51): error TS2345: Argument of type 'ParseNlpIntentArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'ParseNlpIntentArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'ParseNlpIntentArgs'.
+src/services/tauriClient.ts(61,64): error TS2345: Argument of type 'ConfirmAndExecuteIntentArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'ConfirmAndExecuteIntentArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'ConfirmAndExecuteIntentArgs'.
+src/services/tauriClient.ts(73,54): error TS2345: Argument of type 'GenerateSuggestionArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'GenerateSuggestionArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'GenerateSuggestionArgs'.
+src/services/tauriClient.ts(85,48): error TS2345: Argument of type 'GetDailyBriefArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'GetDailyBriefArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'GetDailyBriefArgs'.
+src/services/tauriClient.ts(111,54): error TS2345: Argument of type 'SyncCalendarArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'SyncCalendarArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'SyncCalendarArgs'.
+src/services/tauriClient.ts(137,48): error TS2345: Argument of type 'FindFreeSlotsArgs' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'FindFreeSlotsArgs' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'FindFreeSlotsArgs'.
+src/services/tauriClient.ts(144,57): error TS2345: Argument of type 'CreateEventPayload & { userId: string; }' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'CreateEventPayload & { userId: string; }' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'CreateEventPayload & { userId: string; }'.
+src/services/tauriClient.ts(151,57): error TS2345: Argument of type 'UpdateEventPayload & { userId: string; }' is not assignable to parameter of type 'InvokeArgs | undefined'.
+  Type 'UpdateEventPayload & { userId: string; }' is not assignable to type 'Record<string, unknown>'.
+    Index signature for type 'string' is missing in type 'UpdateEventPayload & { userId: string; }'.
+src/stores/useAnalyticsStore.ts(121,21): error TS2339: Property 'patterns' does not exist on type '{ userId: string; shortcomings: { id: string; title: string; description: string; severity: ShortcomingSeverity; category: string; suggestions: string[]; identifiedAt: string; isResolved: boolean; resolvedAt?: string; }[]; ... 5 more ...; analysisVersion: string; }'.
+src/stores/useHabitStore.ts(71,37): error TS6133: 'count' is declared but its value is never read.
+src/stores/useHabitStore.ts(106,11): error TS2375: Type '{ id: string; userId: string; title: string; description: string | undefined; icon: string | undefined; color: string | undefined; frequency: HabitFrequency; customDays: number[] | undefined; ... 10 more ...; isArchived: false; }' is not assignable to type 'Habit' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'description' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/stores/useHabitStore.ts(231,30): error TS6133: 'userId' is declared but its value is never read.
+src/stores/useNlpStore.ts(5,46): error TS2305: Module '"@/types/nlp"' has no exported member 'Suggestion'.
+src/stores/useNoteStore.ts(98,11): error TS2375: Type '{ id: string; userId: string; title: string; content: string; excerpt: string; tags: string[]; links: NoteLink[]; isPinned: boolean; isArchived: false; createdAt: string; updatedAt: string; wordCount: number; color: string | undefined; }' is not assignable to type 'Note' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'color' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/stores/useTaskStore.ts(128,11): error TS2375: Type '{ id: string; userId: string; title: string; description: string | undefined; status: TaskStatus; priority: Priority; eisenhowerQuadrant: EisenhowerQuadrant | undefined; ... 12 more ...; isArchived: false; }' is not assignable to type 'Task' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'description' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/views/DatesView.vue(137,9): error TS2375: Type '{ notes?: string; linkedContactName?: string; title: string; category: DateCategory; date: string; recurrence: RecurrenceType; notifyDaysBefore: number; isCompleted: false; }' is not assignable to type 'CreateDatePayload & { userId: string; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Property 'userId' is missing in type '{ notes?: string; linkedContactName?: string; title: string; category: DateCategory; date: string; recurrence: RecurrenceType; notifyDaysBefore: number; isCompleted: false; }' but required in type 'CreateDatePayload'.
+src/views/FinanceView.vue(143,22): error TS2345: Argument of type '{ category: TransactionCategory; monthlyLimit: number; spent: number; period: string; }' is not assignable to parameter of type 'Omit<Budget, "id" | "updatedAt" | "createdAt">'.
+  Property 'userId' is missing in type '{ category: TransactionCategory; monthlyLimit: number; spent: number; period: string; }' but required in type 'Omit<Budget, "id" | "updatedAt" | "createdAt">'.
+src/views/FinanceView.vue(192,9): error TS2741: Property 'userId' is missing in type '{ notes?: string; deadline?: string; name: string; targetAmount: number; currentAmount: number; category: TransactionCategory; isCompleted: boolean; }' but required in type 'Omit<FinancialGoal, "id" | "updatedAt" | "createdAt">'.
+src/views/FrameworksView.vue(37,5): error TS2353: Object literal may only specify known properties, and 'type' does not exist in type 'CustomFrameworkConfig & { name: string; }'.
+src/views/FrameworksView.vue(69,49): error TS2339: Property 'type' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/views/FrameworksView.vue(78,53): error TS2339: Property 'icon' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/views/FrameworksView.vue(80,63): error TS2339: Property 'description' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/views/FrameworksView.vue(83,36): error TS2339: Property 'steps' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/views/FrameworksView.vue(86,51): error TS2339: Property 'steps' does not exist on type '{ name: string; frameworkType: FrameworkSlug; id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; ... 10 more ...; updatedAt: string; }'.
+src/views/FrameworksView.vue(92,44): error TS2551: Property 'currentStep' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'. Did you mean 'currentStepId'?
+src/views/FrameworksView.vue(94,42): error TS2551: Property 'currentStep' does not exist on type '{ id: string; userId: string; frameworkId: string; frameworkSlug: FrameworkSlug; state: FrameworkState; currentStepId?: string; pomodoroState?: { phase: PomodoroPhase; elapsed: number; duration: number; interval: number; totalIntervals: number; }; ... 8 more ...; updatedAt: string; }'. Did you mean 'currentStepId'?
+vite.config.ts(5,29): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '() => Promise<{ plugins: Plugin<Api>[]; resolve: { alias: { '@': string; }; }; clearScreen: boolean; server: { port: number; strictPort: boolean; watch: { ignored: string[]; }; }; build: { target: string[]; minify: string | boolean; sourcemap: boolean; }; }>' is not assignable to parameter of type 'UserConfigExport'.
+      Type '() => Promise<{ plugins: Plugin<Api>[]; resolve: { alias: { '@': string; }; }; clearScreen: boolean; server: { port: number; strictPort: boolean; watch: { ignored: string[]; }; }; build: { target: string[]; minify: string | boolean; sourcemap: boolean; }; }>' is not assignable to type 'UserConfigFnObject'.
+        Type 'Promise<{ plugins: Plugin<Api>[]; resolve: { alias: { '@': string; }; }; clearScreen: boolean; server: { port: number; strictPort: boolean; watch: { ignored: string[]; }; }; build: { target: string[]; minify: string | boolean; sourcemap: boolean; }; }>' has no properties in common with type 'UserConfig'.
