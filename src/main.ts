@@ -61,6 +61,17 @@ import('@/stores/useAuthStore').then(async ({ useAuthStore }) => {
   if (typeof window.__clearPreRenderErrors === 'function') {
     window.__clearPreRenderErrors()
   }
+
+  // ── Show window ──────────────────────────────────────────────────────────────
+  // The Tauri window starts hidden (visible:false in tauri.conf.json) to
+  // prevent the black-screen flash while the WebView is initialising.
+  // Now that Vue has mounted, reveal it.
+  try {
+    const { invoke } = await import('@tauri-apps/api/core')
+    await invoke('show_main_window')
+  } catch {
+    // Running outside Tauri (browser / unit tests) — safe to ignore.
+  }
 }).catch((err) => {
   // Module load failure — Vue never mounts, the pre-render error div shows it
   console.error('Fatal: failed to initialise app', err)

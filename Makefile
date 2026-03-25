@@ -3,7 +3,7 @@
 # Requires: Node.js, npm, Rust/Cargo, Tauri CLI
 
 .DEFAULT_GOAL := help
-.PHONY: help deps dev build install install-deb install-appimage clean lint typecheck test test-e2e release bump upgrade upgrade-minor upgrade-major
+.PHONY: help deps dev build install install-deb install-appimage clean lint typecheck test test-e2e release bump upgrade upgrade-minor upgrade-major icon
 
 # Detect platform
 UNAME := $(shell uname -s)
@@ -41,6 +41,7 @@ help:
 	@echo ""
 	@echo "  Maintenance"
 	@echo "    clean             Remove dist/ and Cargo build artifacts"
+	@echo "    icon              Regenerate all icon sizes from app_icon.png"
 	@echo ""
 
 # ─── Development ──────────────────────────────────────────────────────────────
@@ -83,7 +84,9 @@ ifeq ($(UNAME), Linux)
 	fi; \
 	echo "Installing: $$DEB"; \
 	sudo dpkg -i "$$DEB"; \
-	sudo apt-get install -f -y
+	sudo apt-get install -f -y; \
+	gtk-update-icon-cache /usr/share/icons/hicolor/ 2>/dev/null || true; \
+	update-desktop-database 2>/dev/null || true
 else
 	@echo "Note: .deb install is Linux-only."
 	@echo "      On macOS: open src-tauri/target/release/bundle/dmg/*.dmg"
@@ -146,3 +149,12 @@ clean:
 	rm -rf dist
 	cargo clean --manifest-path src-tauri/Cargo.toml
 	@echo "Cleaned dist/ and Cargo build artifacts."
+
+# ─── Icons ─────────────────────────────────────────────────────────────────────
+# Regenerate all bundled icon sizes (32x32, 128x128, .icns, .ico, etc.)
+# from the single source file app_icon.png using the Tauri CLI.
+# Run this whenever app_icon.png is updated, then rebuild.
+
+icon:
+	npx tauri icon app_icon.png
+	@echo "Icons regenerated in src-tauri/icons/. Rebuild the app to apply."

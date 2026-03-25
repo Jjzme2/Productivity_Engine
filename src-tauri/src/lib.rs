@@ -232,6 +232,7 @@ pub fn run() {
             commands::settings::set_active_ai_provider,
             commands::settings::export_data,
             commands::settings::import_data,
+            commands::settings::show_main_window,
             // Secrets
             commands::secrets::read_secret_env,
             // Logging

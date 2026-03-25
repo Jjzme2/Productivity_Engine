@@ -248,3 +248,17 @@ pub async fn import_data(
     tracing::info!(path = source_path, "Data imported");
     Ok(())
 }
+
+
+/// Show the main application window.
+///
+/// The window starts with `visible: false` in tauri.conf.json so the webview
+/// can render fully before appearing — eliminating the black-screen flash on
+/// startup.  The frontend calls this command once Vue has mounted.
+#[tauri::command]
+pub fn show_main_window(app: tauri::AppHandle) {
+    if let Some(win) = app.get_webview_window("main") {
+        win.show().ok();
+        win.set_focus().ok();
+    }
+}

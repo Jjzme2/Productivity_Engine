@@ -11,7 +11,6 @@ import type {
   AiProviderStatus,
   UserContext,
 } from '@/types/nlp'
-import type { Task, CreateTaskPayload, UpdateTaskPayload } from '@/types/task'
 import type {
   CalendarEvent,
   CreateEventPayload,
@@ -407,27 +406,3 @@ export async function readSecretEnv(name: string): Promise<string | null> {
   return invoke<string | null>('read_secret_env', { name })
 }
 
-// ─── Task commands (backend-assisted operations) ──────────────────────────────
-
-/**
- * Ask the backend to compute the Eisenhower priority matrix
- * based on the current task list.
- */
-export async function computePriorityMatrix(
-  userId: string,
-): Promise<{
-  doFirst: Task[]
-  schedule: Task[]
-  delegate: Task[]
-  eliminate: Task[]
-}> {
-  return invoke('compute_priority_matrix', { userId })
-}
-
-/** Bulk-complete multiple tasks in one Rust call. */
-export async function bulkCompleteTasks(
-  taskIds: string[],
-  userId: string,
-): Promise<void> {
-  return invoke<void>('bulk_complete_tasks', { taskIds, userId })
-}
