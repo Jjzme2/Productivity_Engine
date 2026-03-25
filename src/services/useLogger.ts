@@ -1,7 +1,14 @@
 // ─── Structured Logger ────────────────────────────────────────────────────────
 // Provides tagged, timestamped log output with an in-memory ring buffer.
+//
+// warn + error levels are automatically forwarded to the Rust tracing
+// subscriber (which writes to the rolling daily log file) so they are
+// visible even when the in-app overlay is unavailable.
+//
 // Usage:  const log = createLogger('NoteStore')
 //         log.info('Note saved', { id })
+
+import { invoke } from '@tauri-apps/api/core'
 
 type LogLevel = 'debug' | 'info' | 'warn' | 'error'
 
@@ -23,6 +30,15 @@ const LEVEL_STYLES: Record<LogLevel, string> = {
   error: 'color:#f87171;font-weight:bold',
 }
 
+// Forward warn/error entries to the Rust log file. Fire-and-forget — a
+// failure here (e.g. running in a plain browser) must never throw.
+function forwardToFile(level: 'warn' | 'error', module: string, message: string, data?: unknown) {
+  const context = data !== undefined ? JSON.stringify({ module, data }) : JSON.stringify({ module })
+  invoke('log_frontend_error', { level, message, context }).catch(() => {
+    // Tauri unavailable (browser / unit tests) — silently skip
+  })
+}
+
 function push(entry: LogEntry) {
   LOG_BUFFER.push(entry)
   if (LOG_BUFFER.length > MAX_ENTRIES) LOG_BUFFER.shift()
@@ -38,11 +54,17 @@ function push(entry: LogEntry) {
     case 'warn':  console.warn(...args); break
     case 'error': console.error(...args); break
   }
+
+  // Persist warn/error to the Rust rolling log file
+  if (entry.level === 'warn' || entry.level === 'error') {
+    forwardToFile(entry.level, entry.module, entry.message, entry.data)
+  }
 }
 
 /**
  * Create a logger scoped to a module name.
  * Every message is prefixed with `[PE:ModuleName]` and a timestamp.
+ * warn and error entries are also written to the Rust rolling log file.
  */
 export function createLogger(module: string) {
   function log(level: LogLevel, message: string, data?: unknown) {

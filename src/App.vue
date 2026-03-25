@@ -109,6 +109,7 @@ import type { ToastVariant } from '@/stores/useAppStore'
 import { firebaseEnabled } from '@/services/firebase'
 import { createLogger } from '@/services/useLogger'
 import { updateSettings } from '@/services/tauriClient'
+import { runStartupDiagnostics } from '@/services/diagnostics'
 
 import { useTaskStore } from '@/stores/useTaskStore'
 import { useHabitStore } from '@/stores/useHabitStore'
@@ -207,6 +208,14 @@ onMounted(async () => {
       variant: 'warning',
     })
   }
+
+  // Run startup diagnostics — writes Firebase/Firestore/auth status to the
+  // rolling log file so you can diagnose issues even when the UI isn't loading.
+  runStartupDiagnostics().then((result) => {
+    if (result.logFilePath) {
+      log.info(`Log file: ${result.logFilePath}`)
+    }
+  }).catch(() => {})
 
   appStore.markInitialised()
 

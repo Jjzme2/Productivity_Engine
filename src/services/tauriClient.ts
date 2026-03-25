@@ -406,3 +406,18 @@ export async function readSecretEnv(name: string): Promise<string | null> {
   return invoke<string | null>('read_secret_env', { name })
 }
 
+
+// ─── Log file access ──────────────────────────────────────────────────────────
+
+/** Return the absolute path to today's rolling log file. */
+export async function getLogFilePath(): Promise<string> {
+  return invoke<string>('get_log_file_path')
+}
+
+/**
+ * Return the last `lines` lines of today's log file as a single string.
+ * Useful for displaying recent log output in a settings/debug panel.
+ */
+export async function readLogTail(lines = 200): Promise<string> {
+  return invoke<string>('read_log_tail', { lines })
+}

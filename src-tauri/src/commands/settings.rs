@@ -262,3 +262,44 @@ pub fn show_main_window(app: tauri::AppHandle) {
         win.set_focus().ok();
     }
 }
+
+// ---------------------------------------------------------------------------
+// Log file access
+// ---------------------------------------------------------------------------
+
+/// Return the absolute path to today's rolling log file so the frontend can
+/// display it (e.g. in Settings → About) or open it in a text editor.
+#[tauri::command]
+pub fn get_log_file_path() -> String {
+    let log_dir = std::env::var("XDG_DATA_HOME")
+        .map(std::path::PathBuf::from)
+        .unwrap_or_else(|_| {
+            std::env::var("HOME")
+                .map(|h| std::path::PathBuf::from(h).join(".local/share"))
+                .unwrap_or_else(|_| std::env::temp_dir())
+        })
+        .join("productivity-engine/logs");
+
+    let today = chrono::Local::now().format("%Y-%m-%d").to_string();
+    let path = log_dir.join(format!("app.log.{today}"));
+    path.to_string_lossy().into_owned()
+}
+
+/// Return the last `lines` lines of today's log file as a single string.
+/// Returns an empty string if the file does not exist yet (nothing logged).
+#[tauri::command]
+pub fn read_log_tail(lines: Option<usize>) -> String {
+    let path_str = get_log_file_path();
+    let path = std::path::Path::new(&path_str);
+
+    let n = lines.unwrap_or(200);
+
+    match std::fs::read_to_string(path) {
+        Ok(content) => {
+            let all: Vec<&str> = content.lines().collect();
+            let start = all.len().saturating_sub(n);
+            all[start..].join("\n")
+        }
+        Err(_) => String::new(),
+    }
+}

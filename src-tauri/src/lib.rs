@@ -78,7 +78,21 @@ pub fn run() {
     // Keep the guard alive for the entire process — dropping it flushes and
     // closes the async file writer.
     let _log_guard = init_logging();
-    info!("Productivity Engine (ILYTAT Suite) starting up");
+
+    // ── Announce log file location ───────────────────────────────────────────
+    // Printed first so the path appears at the very top of every log session.
+    let log_dir = std::env::var("XDG_DATA_HOME")
+        .map(std::path::PathBuf::from)
+        .unwrap_or_else(|_| {
+            std::env::var("HOME")
+                .map(|h| std::path::PathBuf::from(h).join(".local/share"))
+                .unwrap_or_else(|_| std::env::temp_dir())
+        })
+        .join("productivity-engine/logs");
+    let today = chrono::Local::now().format("%Y-%m-%d").to_string();
+    let log_file = log_dir.join(format!("app.log.{today}"));
+    info!("=== Productivity Engine (ILYTAT Suite) starting up ===");
+    info!(log_file = %log_file.display(), "Log file for this session");
 
     // ---- Credentials -------------------------------------------------------
     let credentials = Arc::new(CredentialStore::new());
@@ -233,6 +247,8 @@ pub fn run() {
             commands::settings::export_data,
             commands::settings::import_data,
             commands::settings::show_main_window,
+            commands::settings::get_log_file_path,
+            commands::settings::read_log_tail,
             // Secrets
             commands::secrets::read_secret_env,
             // Logging
